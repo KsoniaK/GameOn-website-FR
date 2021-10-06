@@ -14,7 +14,7 @@
   <body>
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
+      <img alt="logo" src="./images/Logo.png" width="auto" height="auto" />
     </div>
     <div class="main-navbar">
       <a href="#" class="active"><span>Accueil</span></a>
@@ -45,7 +45,7 @@
           </button>
         </div>
         <div class="hero-img">
-          <img src="./bg_img.jpg" alt="img" />
+          <img src="./images/bg_img.jpg" alt="img" />
         </div>
         <button class="btn-signup modal-btn" onclick="launchModal()">
           je m'inscris
@@ -72,7 +72,6 @@
                   name="first"
                   placeholder="Prénom"
                 />
-                <span id="errorFirst"></span>
                 <br>
               </div>
               <div
@@ -85,7 +84,6 @@
                   name="last"
                   placeholder="Nom"
                 />
-                <span id="errorLast"></span>
                 <br>
               </div>
               <div
@@ -98,7 +96,6 @@
                   name="email"
                   placeholder="email@host.com"
                 />
-                <span id="errorEmail"></span>
                 <br>
               </div>
               <div
@@ -108,10 +105,8 @@
                   class="text-control"
                   type="date"
                   id="birthdate"
-                  name="birthdate"
-                  
+                  name="birthdate"  
                 />
-                <span id="errorBirthDate"></span>
                 <br>
               </div>
               <div
@@ -129,8 +124,6 @@
                   id="location1"
                   name="location"
                   value="New York"
-             
-                
                 />
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"  ></span>
@@ -142,9 +135,7 @@
                   id="location2"
                   name="location"
                   value="San Francisco"
-              
                 />
-                
                 <label class="checkbox-label" for="location2">
                   <span class="checkbox-icon" ></span>
                   San Francisco</label
@@ -155,9 +146,7 @@
                   id="location3"
                   name="location"
                   value="Seattle"
-     
                 />
-               
                 <label class="checkbox-label" for="location3">
                   <span class="checkbox-icon"></span>
                   Seattle</label
@@ -170,7 +159,6 @@
                   value="Chicago"
              
                 />
-             
                 <label class="checkbox-label" for="location4">
                   <span class="checkbox-icon"></span>
                   Chicago</label
@@ -182,7 +170,6 @@
                   name="location"
                   value="Boston"
                 />
-               
                 <label class="checkbox-label" for="location5">
                   <span class="checkbox-icon"></span>
                   Boston</label
@@ -194,14 +181,11 @@
                   name="location"
                   value="Portland"
                 />
-                
                 <label class="checkbox-label" for="location6">
                   <span class="checkbox-icon"></span>
                   Portland</label
                 >
-                <span id="errorCity"></span>
                 </div>
-
               <div
                 class="formData">
                 <input
@@ -210,13 +194,11 @@
                   id="checkbox1"
                   name="checkbox1"
                   checked
-                  
                 />
                 <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon" id="checkCGU"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
-                <span id="errorCGU"></span>
                 <br>
                 <input 
                 class="checkbox-input"
@@ -234,11 +216,13 @@
                 type="submit"
                 value="C'est parti"
               />
-              <span id="errorConfirmation"></span>
             </form>
           </div>
         </div>
       </div>
+      <!-- <div id="sucessMessage">
+        <p>OOOOOOHHHHH</p>
+      </div> -->
     </main>
     <footer>
       <p class="copyrights">

@@ -219,7 +219,7 @@ input {
 }
 .formData[data-error]::after{
   content: attr(data-error);
-  font-size: 0.4em;
+  font-size: 1rem;
   color: #e54858;
   display: block;
   margin-top: 7px;
@@ -487,9 +487,18 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+/* #sucessMessage{
+  width: 20rem;
+  height: 20rem;
+  background-color: red;
+  opacity: 0;
+} */
 
 /* PORTABLE */
 @media screen and (max-width: 800px) {
+  .formData[data-error]::after{
+    line-height: 1;
+  }
   .fa.fa-bars{
     /* color: #fe142f; */
   }
