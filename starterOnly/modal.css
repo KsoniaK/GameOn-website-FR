@@ -55,12 +55,13 @@ img {
 .topnav a:hover {
   background-color: #ff0000;
   color: #ffffff;
+  text-decoration: underline;
   border-radius: 15px;
 }
 
 .topnav a.active {
-  background-color: #ff0000;
-  color: #ffffff;
+  /* background-color: #ff0000; */
+  /* color: #ffffff; */
   border-radius: 15px;
 }
 
@@ -477,6 +478,86 @@ footer {
   margin: 0 20px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+/* ARRIERE PLAN DE LA MODALE VALIDATION */
+.modal-confirm{
+  z-index: 1;
+  position: fixed;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(26, 39, 156, 0.4);
+  display: none;
+}
+/* BOUTON FERMER LA MODALE CONFIRMATION */
+.modal-confirm-close{
+  background: #fe142f;
+  display: block;
+  margin: 0 auto;
+  border-radius: 7px;
+  font-size: 1rem;
+  padding: 12px 82px;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  top: 90%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%)
+}
+.modal-confirm p{
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 61%;
+}
+.d-flex{
+  display: flex;
+  justify-content: center;
+}
+/* MODALE CONFIRMATION */
+#confirmation{
+  background-color: #232323;
+  width: 500px;
+  padding: 20px;
+  /* max-width: calc(100vw - 20px);
+  max-height: calc(100vh - 20px); */
+  overflow: auto;
+  color: white;
+  height: 91vh;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* PORTABLE */
 @media screen and (max-width: 800px) {
   .formData[data-error]::after{
@@ -532,6 +613,9 @@ footer {
     display: block;
     margin: 32px auto 10px;
     padding: 12px 35px;
+  }
+  #confirmation{
+    height: 100vh;
   }
   .copyrights {
     margin-top: 50px;

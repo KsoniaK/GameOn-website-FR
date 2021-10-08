@@ -9,33 +9,45 @@ function editNav() {
 // *******************************
 // ON RECUPERE LES ELEMENTS DU DOM
 // *******************************
-const modalClose = document.getElementById("btn-close");
+// const test = document.getElementById("confirmation");
+const secondModalClose = document.getElementById("btn-close-bis");
+const modalClose = document.querySelectorAll(".close");
 const sucessMessageModal = document.getElementById("sucessMessage");
+const valider = document.querySelector(".modal-confirm");
+const validerClose = document.querySelector(".modal-confirm-close");
 const modalbg = document.querySelector(".bground");
 const submits = document.querySelector('.btn-submit');
 const formInputs = document.querySelectorAll("input");
 const locationAlls = document.querySelectorAll('[name="location"]');
 const formData = document.querySelectorAll(".formData");
-const modalOpen = document.querySelectorAll("button");
+const modalOpen = document.querySelectorAll(".btn-signup");
 
 // ******************
 // EVENEMENTS AU CLIC
 // ******************
 // POUR L INPUT PORTANT LA CLASS .btn-submit ON AJOUTE UN EVENEMENT AU CLIC.
 submits.addEventListener('click', checkInput);
+// submits.addEventListener('click', modalSucess);
 
 // UTILISATION DU FOREACH CAR ON A PLUSIEURS INPUTS (TABLEAU).
 // POUR CHAQUE INPUT ON AJOUTE UN EVENEMENT keyup ET ON INDIQUE DANS LA FONCTION checkInput() le comportement qu'ils adopteront.
 formInputs.forEach(input => {
   input.addEventListener('keyup', checkInput)
 });
-// ICI UN EVENEMENT AU CLIC POUR TOUS LES BOUTONS
+// ICI UN EVENEMENT AU CLIC POUR TOUS LES BOUTONS PORTANT LA class .btn-signup
 modalOpen.forEach(button =>{
   button.addEventListener('click', setModalOpen)
 });
-// ICI UN EVENEMENT AU CLIC POUR modalClose QUI A L ID bnt-close
-modalClose.addEventListener('click', setModalClose);
+// ICI UN EVENEMENT AU CLIC POUR modalClose QUI A LA class .close
+modalClose.forEach(button =>{
+  button.addEventListener('click', setModalClose)
+});
+// modalClose.addEventListener('click', setModalClose);
 
+valider.addEventListener('click', modalSucess);
+validerClose.addEventListener('click', modalSucessConfirm);
+
+secondModalClose.addEventListener("click", modalSucessConfirm);
 
 // *******************************************************************
 // CREATION DE LA FONCTION checkInput COMPORTANT TOUTES LES CONDITIONS
@@ -130,7 +142,6 @@ formInputs.forEach(input => {
                   break
    }
   });
-
   let sucessNumber = 0;
   // ON VERIFIE QUE TOUTES LES DIV AYANT POUR class .formData CONTIENNENT BIEN LA class .sucess POUR ENVOYER LE FORMULAIRE
   formData.forEach(div => {
@@ -144,7 +155,7 @@ formInputs.forEach(input => {
       if(e.type === 'click'){
         modalSucess();
         setModalClose();
-        // document.forms[0].reset()
+        document.forms[0].reset()
       }
     }
   });
@@ -154,11 +165,11 @@ formInputs.forEach(input => {
 // ***************
 // FONCTION POUR OUVRIR LA MODALE
 function setModalOpen(){
-    modalbg.style.display = "block"
+  modalbg.style.display = "block"
 }
 // FONCTION POUR FERMER LA MODALE
 function setModalClose(){
-  modalbg.style.display = "none"
+  modalbg.style.display = "none";
 }
 // FONCTION POUR LES MESSAGES D ERREUR
 // ELLE PREND 2 PARAMETRES
@@ -180,11 +191,14 @@ function setSucessMessage(input) {
   input.parentElement.removeAttribute("data-error-visible");
 }
 // FONCTION QUI AFFICHE UNE ALERTE LORSQUE LE FORMULAIRE A ETE CORRECTEMENT REMPLI
-// **********************************************
-// EN ATTENTE DE LA MODALE CONFORME A LA MAQUETTE
-// **********************************************
+// ON OUVRE LA MODALE DE CONFIRMATION
 function modalSucess(){
-  alert("Merci !");
+  valider.style.display = "flex";
+}
+// ON LA FERME
+function modalSucessConfirm(){
+  valider.style.opacity = 0;
+  location.reload();
 }
 
 // *********************************************************************************************************************************
