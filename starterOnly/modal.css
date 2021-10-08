@@ -109,10 +109,7 @@ main {
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-
-
 }
-
 .modal-btn {
   font-size: 145%;
   background: #fe142f;
@@ -479,12 +476,6 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
-/* #sucessMessage{
-  width: 20rem;
-  height: 20rem;
-  background-color: red;
-  opacity: 0;
-} */
 
 /* PORTABLE */
 @media screen and (max-width: 800px) {

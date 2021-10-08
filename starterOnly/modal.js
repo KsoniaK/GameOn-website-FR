@@ -9,36 +9,33 @@ function editNav() {
 // *******************************
 // ON RECUPERE LES ELEMENTS DU DOM
 // *******************************
+const modalClose = document.getElementById("btn-close");
+const sucessMessageModal = document.getElementById("sucessMessage");
 const modalbg = document.querySelector(".bground");
-const formInputs = document.querySelectorAll("input");
 const submits = document.querySelector('.btn-submit');
+const formInputs = document.querySelectorAll("input");
 const locationAlls = document.querySelectorAll('[name="location"]');
 const formData = document.querySelectorAll(".formData");
-const sucessMessageModal = document.getElementById("sucessMessage");
+const modalOpen = document.querySelectorAll("button");
 
 // ******************
 // EVENEMENTS AU CLIC
 // ******************
 // POUR L INPUT PORTANT LA CLASS .btn-submit ON AJOUTE UN EVENEMENT AU CLIC.
 submits.addEventListener('click', checkInput);
+
 // UTILISATION DU FOREACH CAR ON A PLUSIEURS INPUTS (TABLEAU).
 // POUR CHAQUE INPUT ON AJOUTE UN EVENEMENT keyup ET ON INDIQUE DANS LA FONCTION checkInput() le comportement qu'ils adopteront.
 formInputs.forEach(input => {
-  input.addEventListener('keyup', checkInput);
+  input.addEventListener('keyup', checkInput)
 });
+// ICI UN EVENEMENT AU CLIC POUR TOUS LES BOUTONS
+modalOpen.forEach(button =>{
+  button.addEventListener('click', setModalOpen)
+});
+// ICI UN EVENEMENT AU CLIC POUR modalClose QUI A L ID bnt-close
+modalClose.addEventListener('click', setModalClose);
 
-// **********************************
-// OUVERTURE / FERMETURE DE LA MODALE
-// **********************************
-// AJOUT D EVENEMENTS AU CLIC (launchModal() SUR LE BOUTON class="btn-signup modal-btn" / launchModalClose() SUR LE SPAN id="btn-close" )
-// AU CLIC SUR LE BOUTON "Je m'inscris", LA MODALE EST EN DISPLAY BLOCK ET DONC APPARAIT // ON MODIFIE LE STYLE DE modalbg
-      function launchModal() {
-        modalbg.style.display = "block";
-      }
-// AU CLIC SUR LA CROIX (span) PRESENTE DANS LA DIV "bground", LA MODALE EST EN DISPLAY NONE ET DONC SE FERME // ON MODIFIE LE STYLE DE modalbg
-      function launchModalClose() { 
-        modalbg.style.display = "none"
-      }
 
 // *******************************************************************
 // CREATION DE LA FONCTION checkInput COMPORTANT TOUTES LES CONDITIONS
@@ -146,16 +143,23 @@ formInputs.forEach(input => {
     if(formData.length === sucessNumber ){
       if(e.type === 'click'){
         modalSucess();
-        launchModalClose();
+        setModalClose();
         // document.forms[0].reset()
       }
     }
   });
-}
-
+} 
 // ***************
 // LES FONCTIONS
 // ***************
+// FONCTION POUR OUVRIR LA MODALE
+function setModalOpen(){
+    modalbg.style.display = "block"
+}
+// FONCTION POUR FERMER LA MODALE
+function setModalClose(){
+  modalbg.style.display = "none"
+}
 // FONCTION POUR LES MESSAGES D ERREUR
 // ELLE PREND 2 PARAMETRES
 function setErrorMessage(input, message) {
@@ -176,9 +180,11 @@ function setSucessMessage(input) {
   input.parentElement.removeAttribute("data-error-visible");
 }
 // FONCTION QUI AFFICHE UNE ALERTE LORSQUE LE FORMULAIRE A ETE CORRECTEMENT REMPLI
-function modalSucess() {
-  alert("Merci ! Votre participation a bien été enregistrée")
-  // sucessMessageModal.style.opacity = 1;
+// **********************************************
+// EN ATTENTE DE LA MODALE CONFORME A LA MAQUETTE
+// **********************************************
+function modalSucess(){
+  alert("Merci !");
 }
 
 // *********************************************************************************************************************************
