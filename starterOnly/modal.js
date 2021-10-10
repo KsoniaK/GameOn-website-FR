@@ -1,7 +1,10 @@
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
-    x.className += " responsive";
+    // TEST : UNE AUTRE MANIER D AJOUTER LA CLASS "responsive"
+    x.classList.add("responsive")
+    // FACON DU PREDECESSEUR
+    // x.className += " responsive";
   } else {
     x.className = "topnav";
   }
@@ -11,12 +14,12 @@ function editNav() {
 // *******************************
 // const test = document.getElementById("confirmation");
 const secondModalClose = document.getElementById("btn-close-bis");
-const modalClose = document.querySelectorAll(".close");
 const sucessMessageModal = document.getElementById("sucessMessage");
 const valider = document.querySelector(".modal-confirm");
 const validerClose = document.querySelector(".modal-confirm-close");
 const modalbg = document.querySelector(".bground");
 const submits = document.querySelector('.btn-submit');
+const modalClose = document.querySelectorAll(".close");
 const formInputs = document.querySelectorAll("input");
 const locationAlls = document.querySelectorAll('[name="location"]');
 const formData = document.querySelectorAll(".formData");
@@ -31,7 +34,7 @@ submits.addEventListener('click', checkInput);
 
 // UTILISATION DU FOREACH CAR ON A PLUSIEURS INPUTS (TABLEAU).
 // POUR CHAQUE INPUT ON AJOUTE UN EVENEMENT keyup ET ON INDIQUE DANS LA FONCTION checkInput() le comportement qu'ils adopteront.
-formInputs.forEach(input => {
+formInputs.forEach(input =>{
   input.addEventListener('keyup', checkInput)
 });
 // ICI UN EVENEMENT AU CLIC POUR TOUS LES BOUTONS PORTANT LA class .btn-signup
@@ -66,7 +69,8 @@ formInputs.forEach(input => {
   //  ON RECUPERE L ATTRIBUT value DE CHAQUE INPUT
    let inputValue = input.value;
   //  CREATION DE LA constante REGEX
-   const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  // EXEMPLE REGEX ONLINE :  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+   const emailRegex = /\w+@+\w+[.]+\w/;
 
   //  ON VERIFIE LES CONDITIONS GRACE A L ATTRIBUT name DE CHAQUE INPUT
    switch(inputName){
@@ -151,12 +155,10 @@ formInputs.forEach(input => {
     }
     // SI LA LONGUEUR DU TABLEAU QUE FORME formData (PLUSIEURS DIV ONT LA class .formData, donc il est assimilé à un tableau) EST EGALE A CELUI QUE FORME sucessNumber ET QU ON CLICK SUR LE BOUTON DE SOUMISION DU FORMULAIRE
     // ALORS: ON LANCE modalSucess(), launchModalClose() ET ON REMET LE FORMULAIRE A 0
-    if(formData.length === sucessNumber ){
-      if(e.type === 'click'){
+    if(formData.length === sucessNumber && e.type === 'click'){
         modalSucess();
         setModalClose();
-        document.forms[0].reset()
-      }
+        // document.forms[0].reset()
     }
   });
 } 
