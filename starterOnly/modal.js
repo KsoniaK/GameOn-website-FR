@@ -2,7 +2,7 @@ function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
     // TEST : UNE AUTRE MANIER D AJOUTER LA CLASS "responsive"
-    x.classList.add("responsive")
+    x.classList.add("responsive");
     // FACON DU PREDECESSEUR
     // x.className += " responsive";
   } else {
@@ -153,13 +153,13 @@ formInputs.forEach(input => {
       // SI OK, ON INCREMENTE sucessNumber
       sucessNumber++
     }
-    // SI LA LONGUEUR DU TABLEAU QUE FORME formData (PLUSIEURS DIV ONT LA class .formData, donc il est assimilé à un tableau) EST EGALE A CELUI QUE FORME sucessNumber ET QU ON CLICK SUR LE BOUTON DE SOUMISION DU FORMULAIRE
-    // ALORS: ON LANCE modalSucess(), launchModalClose() ET ON REMET LE FORMULAIRE A 0
-    if(formData.length === sucessNumber && e.type === 'click'){
-        modalSucess();
-        setModalClose();
-        // document.forms[0].reset()
-    }
+      // SI LA LONGUEUR DU TABLEAU QUE FORME formData (PLUSIEURS DIV ONT LA class .formData, donc il est assimilé à un tableau) EST EGALE A CELUI QUE FORME sucessNumber ET QU ON CLICK SUR LE BOUTON DE SOUMISION DU FORMULAIRE
+      // ALORS: ON LANCE modalSucess(), launchModalClose() ET ON REMET LE FORMULAIRE A 0
+      if(formData.length === sucessNumber && e.type === 'click'){
+          modalSucess();
+          setModalClose();
+          // document.forms[0].reset()
+      }
   });
 } 
 // ***************
