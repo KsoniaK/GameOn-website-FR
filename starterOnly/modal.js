@@ -158,7 +158,7 @@ formInputs.forEach(input => {
       if(formData.length === sucessNumber && e.type === 'click'){
           modalSucess();
           setModalClose();
-          // document.forms[0].reset()
+          document.forms[0].reset()
       }
   });
 } 
