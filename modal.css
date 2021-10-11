@@ -477,18 +477,7 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
+/* ****************************************************************** */
 /* ARRIERE PLAN DE LA MODALE VALIDATION */
 .modal-confirm{
   z-index: 1;
@@ -545,33 +534,15 @@ footer {
   margin-right: auto;
   border-radius: 10px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ****************************************************************** */
 /* PORTABLE */
 @media screen and (max-width: 800px) {
   .formData[data-error]::after{
     line-height: 1;
   }
-  .fa.fa-bars{
-    /* color: #fe142f; */
-  }
   #myTopnav{
     margin: 5%;
     margin-left: 8%;
-  }
-  .icon .fa.fa-bars:hover{
-    /* color: white; */
   }
   .header-logo img{
     width: 10rem;

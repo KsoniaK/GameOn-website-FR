@@ -96,10 +96,10 @@ formInputs.forEach(input => {
         break
         case 'email':
           // SI: L ATTRIBUT value DE L INPUT DONT L ATTRIBUT name EST EGAL A 'email' EST DIFFERENT DE LA const Regex
-          if(!inputValue.match(emailRegex)){
-            setErrorMessage(input, "Merci d'entrer un email valide");
-          }else{
+          if(inputValue.match(emailRegex)){
             setSucessMessage(input);
+          }else{
+            setErrorMessage(input, "Merci d'entrer un email valide");
           }
           break
           case 'birthdate':
